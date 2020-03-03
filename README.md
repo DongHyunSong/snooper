@@ -1,3 +1,3 @@
 # Snooper
 
-Electron based alternative tcp analyzer from remove tcpdump
+Electron based alternative tcp analyzer from remote tcpdump
