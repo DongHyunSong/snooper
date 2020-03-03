@@ -1,1 +1,3 @@
-Alternative tcp analyzer from remove tcpdump
+#Snooper
+
+Electron based alternative tcp analyzer from remove tcpdump
