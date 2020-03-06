@@ -6,9 +6,9 @@ function sshCommand(cmd) {
   let stream = process.stdin.pipe(
     // you have to add remove server info
     exec(cmd, {
-      user: '',
-      host: '',
-      password: ''
+      host: 'localhost',
+      user: 'songdh',
+      password: '0912'
     })
   );
   let buffers = [];
@@ -32,7 +32,8 @@ function createWindow () {
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
 
-  sshCommand('tcpdump port 80 -X');
+  //sshCommand('tcpdump port 80 -X');
+  sshCommand('ls -al');
 }
 
 app.on('ready', createWindow)
