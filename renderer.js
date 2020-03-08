@@ -1,7 +1,7 @@
 const {ipcRenderer} = require('electron');
 
-function set_ssh() {
-    console.log("set_ssh()");
+function setServerInfo() {
+    console.log("setServerInfo()");
     var ssh_host = document.getElementById("ssh_host").value;
     var ssh_user = document.getElementById("ssh_user").value;
     var ssh_pass = document.getElementById("ssh_pass").value;
@@ -14,6 +14,6 @@ function set_ssh() {
     ipcRenderer.send('set-ssh', JSON.stringify(ssh_info));
 }
 
-function ls_al() {
+function getListOfFiles() {
     ipcRenderer.send('command', 'ls -al');
 }

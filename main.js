@@ -37,11 +37,7 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
-
   mainWindow.webContents.openDevTools();
-
-  //sshCommand('tcpdump port 80 -X');
-  //sshCommand('ls -al');
 }
 
 app.on('ready', createWindow)
