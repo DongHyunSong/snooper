@@ -1,14 +1,19 @@
-const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const exec = require('ssh-exec')
+const {app, BrowserWindow} = require('electron');
+const path = require('path');
+const exec = require('ssh-exec');
+const {ipcMain} = require('electron');
+
+var ssh_info;
 
 function sshCommand(cmd) {
+  console.log(ssh_info);
+  console.log(cmd);
   let stream = process.stdin.pipe(
     // you have to add remove server info
-    exec(cmd, {
-      host: 'localhost',
-      user: 'songdh',
-      password: '0912'
+    exec(cmd,  {
+      host: ssh_info.host,
+      user: ssh_info.user,
+      password: ssh_info.pass
     })
   );
   let buffers = [];
@@ -25,15 +30,18 @@ function createWindow () {
     height: 600,
     backgroundColor: '#303030',
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true
     }
   })
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
 
+  mainWindow.webContents.openDevTools();
+
   //sshCommand('tcpdump port 80 -X');
-  sshCommand('ls -al');
+  //sshCommand('ls -al');
 }
 
 app.on('ready', createWindow)
@@ -47,3 +55,12 @@ app.on('activate', function () {
     createWindow()
 })
 
+ipcMain.on('set-ssh', (event, data) => {
+  console.log(data);
+  ssh_info = JSON.parse(data);
+});
+
+ipcMain.on('command', (event, command) => {
+  console.log(command);
+  sshCommand(command);
+});

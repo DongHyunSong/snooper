@@ -1,7 +1,6 @@
 {
   "name": "songdh",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
@@ -22,10 +21,6 @@
   "devDependencies": {
     "electron": "^8.1.0"
   },
-  "bugs": {
-    "url": "https://github.com/electron/electron-quick-start/issues"
-  },
-  "homepage": "https://github.com/electron/electron-quick-start#readme",
   "dependencies": {
     "ssh-exec": "^2.0.0"
   }
