@@ -1,16 +1,5 @@
 const { ipcRenderer } = require('electron');
 
-var default_expires = new Date();
-default_expires.setFullYear(default_expires.getFullYear() + 1);
-
-function getPreference(name) {
-  return localStorage.getItem(name);
-}
-
-function setPreference(name, value) {
-  localStorage.setItem(name, value);
-}
-
 function getListOfFiles() {
   ipcRenderer.send('command', 'ls -al');
 }
@@ -36,6 +25,7 @@ function setServerInfo() {
 
   sendServerInfo(ssh_host, ssh_user, ssh_pass);
 }
+
 function loadServerInfo() {
   console.log("loadServerInfo()");
   var ssh_host = document.getElementById("ssh_host");

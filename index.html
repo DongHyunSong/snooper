@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Snooper</title>
-  </head>
-  <body>
-    <script src='./renderer.js'></script>
-    <table border=0>
-      <tr>
-        <td>Host</td>
-        <td><input type="text" id="ssh_host" value="localhost"></td>
-      </tr>
-      <tr>
-        <td>User</td>
-        <td><input type="text" id="ssh_user"></td>
-      </tr>
-      <tr>
-        <td>Pass</td>
-        <td><input type="password" id="ssh_pass"></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><input type="button" onclick="setServerInfo()" value="Set"></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><input type="button" onclick="getListOfFiles()" value="ls -al"></td>
-      </tr>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Snooper</title>
+  <script src="js/ui/common.js"></script>
+</head>
+
+<body>
+  <table border=0>
+    <tr>
+      <td>Host</td>
+      <td><input type="text" id="ssh_host" value="localhost"></td>
+    </tr>
+    <tr>
+      <td>User</td>
+      <td><input type="text" id="ssh_user"></td>
+    </tr>
+    <tr>
+      <td>Pass</td>
+      <td><input type="password" id="ssh_pass"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="button" onclick="setServerInfo()" value="Set"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="button" onclick="getListOfFiles()" value="ls -al"></td>
+    </tr>
+  </table>
+  <script src="js/renderer/renderer.js"></script>
+</body>
+
 </html>

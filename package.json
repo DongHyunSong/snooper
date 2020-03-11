@@ -1,7 +1,7 @@
 {
   "name": "songdh",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "js/main/start.js",
   "scripts": {
     "start": "electron ."
   },
