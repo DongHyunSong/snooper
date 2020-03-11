@@ -1,7 +1,7 @@
-const {app, BrowserWindow} = require('electron');
+const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const exec = require('ssh-exec');
-const {ipcMain} = require('electron');
+const { ipcMain } = require('electron');
 
 var ssh_info;
 
@@ -9,22 +9,19 @@ function sshCommand(cmd) {
   console.log(ssh_info);
   console.log(cmd);
   let stream = process.stdin.pipe(
-    // you have to add remove server info
-    exec(cmd,  {
+    exec(cmd, {
       host: ssh_info.host,
       user: ssh_info.user,
       password: ssh_info.pass
     })
   );
-  let buffers = [];
   stream.on('data', (buffer) => {
     console.log('============================' + buffer);
-    buffers.push(buffer);
   });
-  stream.on('end', () => {});
+  stream.on('end', () => { });
 }
 
-function createWindow () {
+function createWindow() {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
